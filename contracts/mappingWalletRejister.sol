@@ -1,4 +1,4 @@
-// SPDX-Licence-Identifier: MIT
+// SPDX-License-Identifier: UNLICENSED
 
 pragma solidity ^0.8.2;
 
@@ -11,13 +11,13 @@ contract walletRejister {
     mapping (address => Persona) public personas;
 
     function registrarPorWallet( string memory _nombre , uint8 _edad) public {
-        personas[msg.sender] Persona(_nombre,_edad)
+        personas[msg.sender] =  Persona(_nombre,_edad);
         
     }
 
     function revisarPorWallet () public view returns(string memory ,uint8) {
-        memory person = personas[msg.sender];
-        return (person.nombre, person.edad)
+       Persona memory person = personas[msg.sender];
+        return (person.nombre, person.edad);
     }
 
 }
